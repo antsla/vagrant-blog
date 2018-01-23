@@ -1,0 +1,36 @@
+.response-link,
+.edit-link,
+.restore-link {
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.modal .commentText {
+  padding: 5px 15px;
+}
+
+.modal .commentText textarea {
+  resize: none;
+  height: 100px;
+  outline: 0;
+}
+
+.modal .commentText textarea:focus {
+  outline: 0;
+}
+
+.ajax-loader {
+  width: 50px;
+  display: block;
+  margin: auto auto;
+}
+
+.enter-arrow {
+  width: 20px;
+}
+
+.clear {
+  clear: both;
+}
+

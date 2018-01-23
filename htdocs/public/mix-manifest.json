@@ -1,0 +1,13 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/styles.css": "/css/styles.css",
+    "/js/main.js": "/js/main.js",
+    "/css/normalize.css": "/css/normalize.css",
+    "/css/toastr.min.css": "/css/toastr.min.css",
+    "/js/toastr.min.js": "/js/toastr.min.js",
+    "/css/swiper.min.css": "/css/swiper.min.css",
+    "/js/swiper.min.js": "/js/swiper.min.js",
+    "/css/bootstrap-datepicker.min.css": "/css/bootstrap-datepicker.min.css",
+    "/js/bootstrap-datepicker.min.js": "/js/bootstrap-datepicker.min.js"
+}
