@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             ArticlesCommentsTableSeeder::class,
             SliderTableSeeder::class,
             PermissionsTableSeeder::class,
-            Roles2PermissionsTableSeeder::class
+            Roles2PermissionsTableSeeder::class,
+            SettingsTableSeeder::class,
         ]);
     }
 }

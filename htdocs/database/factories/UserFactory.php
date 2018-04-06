@@ -27,7 +27,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
 });
 
 $factory->define(App\Models\Article::class, function (Faker $faker) {
-    static $iNumArticle = 0;
+    static $iNumArticle = 1;
 
     $iMinArticleCat = DB::table('articles_categories')->min('id');
     $iMaxArticleCat = DB::table('articles_categories')->max('id');

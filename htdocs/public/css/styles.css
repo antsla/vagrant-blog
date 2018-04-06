@@ -30,6 +30,10 @@
   width: 20px;
 }
 
+.swiper-container {
+  text-align: center;
+}
+
 .clear {
   clear: both;
 }

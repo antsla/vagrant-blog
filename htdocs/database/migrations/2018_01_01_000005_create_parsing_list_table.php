@@ -15,6 +15,7 @@ class CreateParsingListTable extends Migration
         Schema::create('parsing_list_tables', function(Blueprint $table) {
             $table->increments('id');
             $table->string('postfix');
+            $table->timestamps();
         });
     }
 

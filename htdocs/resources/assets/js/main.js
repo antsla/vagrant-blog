@@ -1,50 +1,84 @@
-// Слайдер
 $(document).ready(function(){
-    var mainSwiper = new Swiper ('.swiper-container', {
-        loop: true,
+    //> Событие при ответе на чужой комментарий
+    $('.response-link').click(function() {
+        var id = $(this).attr('data-comment-id');
+        $('input[name="response_id"]').val(id);
+    });
+    //<
 
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination'
+    //> Событие всплытия модального окна, для редактирования комментария
+    $('.edit-link').click(function() {
+        $.ajax({
+            "url" : "/getCommentAjax",
+            "type" : "GET",
+            "async" : false,
+            "dataType" : "json",
+            "data" : {
+                "id" : $(this).attr("data-comment-id")
+            }
+        }).done(function (data) {
+            if (data.result == 'success') {
+                $('#commentTitle').text('Редактирование комментария от пользователя "' + data['data']['username'] + '"');
+                $('#editComment').val(data['data']['text']);
+                $('#editCommentId').val(data['data']['id']);
+                $('#modal-comment').modal('show');
+            } else if (data.result == 'error') {
+                toastr['error'](data['message']);
+            }
+        }).fail(function () {
+            toastr['error']('Server Error!');
+        });
+    });
+    //<
+
+    var mainSwiper = new Swiper ('.swiper-container', {
+        "loop" : true,
+        "centeredSlides" : true,
+        "pagination" : {
+            "el" : '.swiper-pagination'
         },
 
         // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
+        "navigation" : {
+            "nextEl" : '.swiper-button-next',
+            "prevEl" : '.swiper-button-prev'
         }
     });
 });
+
 // Календарь для поля дат
 $('.datepickerBS').datepicker({
     "autoclose" : true,
     "format" : "yyyy-mm-dd"
 });
-// Фильтрация статей на главной
-function articleFilter()
-{
-    $('#articleContainer').html('<img src="js/img/ajax-loader.gif" class="ajax-loader" />');
+
+//> Отправка обратнйо связи
+$('#fb_submit').on('click', function(event) {
+    event.preventDefault();
     $.ajax({
-        "url" : "getFilterArticlesAjax",
-        "type" : "GET",
-        "async" : false,
+        "url" : "/feedbackSendAjax",
+        "type" : "post",
+        "async" : "false",
         "dataType" : "json",
+        "headers" : {
+            "X-CSRF-TOKEN" : $('input[name="_token"]').val()
+        },
         "data" : {
-            "name" : $('input[name="name"]').val(),
-            "group_id" : $('select[name="group_id"]').val(),
-            "dateFrom" : $('input[name="dateFrom"]').val(),
-            "dateTo" : $('input[name="dateTo"]').val(),
-            "_token" : $('input[name="_token"]').val()
+            "name" : $('input[name="fb_name"]').val(),
+            "email" : $('input[name="fb_email"]').val(),
+            "text" : $('textarea[name="fb_text"]').val()
         }
-    }).done(function (data) {
-        if (data == 'empty') {
-            $('#articleContainer').text('');
-            toastr["warning"]("По Вашему запросу ничего не найдено!");
-        } else {
-            $('#articleContainer').html(data);
+    }).done(function(data) {
+        if (data.fail) {
+            toastr['error'](data.message);
+        } else if (data.success) {
+            toastr['success'](data.message);
+            $('input[name="fb_name"]').val('');
+            $('input[name="fb_email"]').val('');
+            $('textarea[name="fb_text"]').val('')
         }
-    }).fail(function () {
-        $('#articleContainer').text('');
-        toastr["error"]("Произошла ошибка!");
+    }).fail(function() {
+        toastr['error']('Server error!');
     });
-}
+});
+//<

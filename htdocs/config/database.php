@@ -49,9 +49,10 @@ return [
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
+            'prefix' => 'bpl_',
             'strict' => true,
             'engine' => null,
+            'options' => [PDO::ATTR_EMULATE_PREPARES => true]
         ],
 
         'pgsql' => [

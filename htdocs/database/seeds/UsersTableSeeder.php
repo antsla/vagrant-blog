@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
         $user = new App\Models\User();
         $user->name = 'moderator';
         $user->password = Hash::make('123456');
-        $user->email = 'slavka20082008@gmail.comu';
+        $user->email = 'slavka20082008@gmail.com';
         $user->role_id = DB::table('roles')->take(1)->skip(1)->get()->first()->id;
         $user->save();
 

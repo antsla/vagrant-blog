@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>@yield('title')</title>
+    <title>@yield('title', Lang::get('layout.title'))</title>
     <meta charset="utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="@yield('description', Lang::get('layout.description'))" />
+    <meta name="keywords" content="@yield('keywords', Lang::get('layout.keywords'))" />
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <!--<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />-->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/normalize.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/spacing.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet" type="text/css" />
     @yield('styles')
@@ -18,7 +19,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -64,9 +65,10 @@
          </div>
     </div>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-    <!--<script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>-->
-    <!--<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>-->
     <script type="text/javascript" src="{{ asset('js/toastr.min.js') }}"></script>
-    @yield('scripts')
+    <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/functions.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

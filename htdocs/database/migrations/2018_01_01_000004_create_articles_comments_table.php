@@ -25,6 +25,8 @@ class CreateArticlesCommentsTable extends Migration
             $table->integer('level');
             $table->timestamps();
             $table->softDeletes();
+
+            //$table->foreign('article_id')->references('id')->on('articles');
         });
     }
 

@@ -18,8 +18,8 @@ class PermissionsTableSeeder extends Seeder
                 'alias' => 'Редактирвоание статей'
             ],
             [
-                'name' => 'EDIT_ARTICLES_GROUPS',
-                'alias' => 'Редактирвоание групп статей'
+                'name' => 'EDIT_ARTICLES_CATEGORIES',
+                'alias' => 'Редактирвоание категорий статей'
             ],
             [
                 'name' => 'EDIT_SLIDER',

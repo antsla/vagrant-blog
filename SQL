@@ -1,0 +1,11 @@
+vagrant up --provision
+
+
+
+CREATE DATABASE blog_portal;
+
+CREATE USER 'blog_portal_user'@'localhost' IDENTIFIED BY 'password';
+
+GRANT ALL PRIVILEGES ON * . * TO 'blog_portal_user'@'localhost';
+
+FLUSH PRIVILEGES;

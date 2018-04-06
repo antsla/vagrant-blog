@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -27,7 +28,10 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin';
+
+    private $aMeta;
+    private $sHeadline;
 
     /**
      * Create a new controller instance.
@@ -36,7 +40,21 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        $this->aMeta = [
+            'title' => Lang::get('auth.title_reg'),
+            'description' => Lang::get('layout.description'),
+            'keywords' => Lang::get('layout.keywords')
+        ];
+        $this->sHeadline = Lang::get('auth.headline_reg');
         $this->middleware('guest');
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('auth.register', [
+            'aMeta' => $this->aMeta,
+            'sHeadline' => $this->sHeadline
+        ]);
     }
 
     /**

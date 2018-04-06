@@ -16,8 +16,9 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('text');
-            $table->integer('group_id');
+            $table->integer('group_id')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -1,13 +1,20 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/spacing.css": "/css/spacing.css",
     "/css/styles.css": "/css/styles.css",
+    "/css/admin/styles.css": "/css/admin/styles.css",
     "/js/main.js": "/js/main.js",
-    "/css/normalize.css": "/css/normalize.css",
+    "/js/admin/vue.settings.js": "/js/admin/vue.settings.js",
+    "/js/admin/main.js": "/js/admin/main.js",
     "/css/toastr.min.css": "/css/toastr.min.css",
     "/js/toastr.min.js": "/js/toastr.min.js",
     "/css/swiper.min.css": "/css/swiper.min.css",
     "/js/swiper.min.js": "/js/swiper.min.js",
     "/css/bootstrap-datepicker.min.css": "/css/bootstrap-datepicker.min.css",
-    "/js/bootstrap-datepicker.min.js": "/js/bootstrap-datepicker.min.js"
+    "/js/bootstrap-datepicker.min.js": "/js/bootstrap-datepicker.min.js",
+    "/css/normalize.css": "/css/normalize.css",
+    "/js/functions.js": "/js/functions.js",
+    "/js/admin/bootstrap-file.js": "/js/admin/bootstrap-file.js",
+    "/js/admin/functions.js": "/js/admin/functions.js"
 }

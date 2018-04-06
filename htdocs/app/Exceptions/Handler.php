@@ -2,11 +2,16 @@
 
 namespace App\Exceptions;
 
+use App\Events\onUserEvent;
 use Exception;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Lang;
+use Symfony\Component\EventDispatcher\Event;
 
 class Handler extends ExceptionHandler
 {
+    public $aMeta;
     /**
      * A list of the exception types that are not reported.
      *
